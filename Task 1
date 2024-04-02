@@ -1,0 +1,35 @@
+#code for creation of barchart with ages and frequencies
+import matplotlib.pyplot as plt
+
+# Sample ages data
+ages = [20, 25, 30, 35, 40, 45, 50, 55, 60, 65]
+frequency = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]  # Frequency of each age group
+
+# Create bar chart
+plt.bar(ages, frequency, color='skyblue')
+
+# Add labels and title
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.title('Distribution of Ages in Population')
+
+# Show plot
+plt.show()
+
+#code for creation of barchart with genders and frequencies
+import matplotlib.pyplot as plt
+
+# Sample gender data
+genders = ['Male', 'Female', 'Non-Binary']
+frequency = [400, 500, 300]  # Frequency of each gender group
+
+# Create bar chart
+plt.bar(genders, frequency, color='grey')
+
+# Add labels and title
+plt.xlabel('Gender')
+plt.ylabel('Frequency')
+plt.title('Distribution of Genders in Population')
+
+# Show plot
+plt.show()

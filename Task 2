@@ -1,0 +1,64 @@
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load the Titanic dataset
+titanic_df = pd.read_csv('Titanic-Dataset.csv')
+
+# Display the first few rows of the dataframe
+print(titanic_df.head())
+
+# Check for missing values
+print(titanic_df.isnull().sum())
+
+# Fill missing values
+# For example, let's fill missing values in the 'Age' column with the median age
+median_age = titanic_df['Age'].median()
+titanic_df['Age'].fillna(median_age, inplace=True)
+
+# Perform descriptive statistics
+print(titanic_df.describe())
+
+# Visualize the relationships between variables
+# Pairplot to visualize pairwise relationships
+pd.plotting.scatter_matrix(titanic_df, figsize=(12, 12))
+plt.show()
+
+# Correlation heatmap
+corr = titanic_df.corr()
+plt.matshow(corr)
+plt.xticks(range(len(corr.columns)), corr.columns)
+plt.yticks(range(len(corr.columns)), corr.columns)
+plt.colorbar()
+plt.show()
+
+# Boxplot to visualize distributions of numerical variables
+titanic_df.boxplot(figsize=(10, 6))
+plt.title('Boxplot of Numerical Variables')
+plt.xticks(rotation=45)
+plt.show()
+
+# Histograms to visualize distributions of individual variables
+titanic_df['Age'].hist(bins=20)
+plt.title('Histogram of Age')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.show()
+
+# Explore categorical variables
+# For example, let's visualize the survival rate by gender
+survived_by_sex = titanic_df.groupby(['Sex', 'Survived']).size().unstack()
+survived_by_sex.plot(kind='bar', stacked=True)
+plt.title('Survival Count by Gender')
+plt.xlabel('Gender')
+plt.ylabel('Count')
+plt.show()
+
+# Explore survival rate by passenger class
+survived_by_class = titanic_df.groupby(['Pclass', 'Survived']).size().unstack()
+survived_by_class.plot(kind='bar', stacked=True)
+plt.title('Survival Count by Passenger Class')
+plt.xlabel('Passenger Class')
+plt.ylabel('Count')
+plt.show()

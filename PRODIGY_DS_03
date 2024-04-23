@@ -5,7 +5,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
 # Load the dataset
-url = "https://archive.ics.uci.edu/ml/datasets/Bank+Marketing Comillas Negras PRODIGY INFOTECH"
+url = "https://archive.ics.uci.edu/ml/datasets/Bank+Marketing"
 bank_data = pd.read_csv(url, compression='zip', sep=';')
 
 # Data preprocessing
